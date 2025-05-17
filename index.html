@@ -1,5 +1,48 @@
-<center><h1>Martes Painting LLC</h1></center>
-<center><h4>It's a Pleasure to Serve You!</h4></center>
-<br></br>
-<center><p>732-915-7582</p></center>
-<center><p>This is just a landing page, call to make get a proposal today for your building!</p></center>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Martes Painting LLC</title>
+  <style>
+    :root {
+      --primary:#21409A;
+      --accent:#F2C94C;
+      --bg:#fdfdfd;
+      --text:#1a1a1a;
+      --radius:0.75rem;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+    body{background:var(--bg);color:var(--text);display:flex;min-height:100vh;justify-content:center;align-items:center;padding:1rem;}
+    .card{max-width:480px;width:100%;background:white;border-radius:var(--radius);box-shadow:0 10px 20px rgba(0,0,0,.08);padding:2.5rem 2rem;text-align:center;}
+    h1{font-size:2rem;color:var(--primary);margin-bottom:0.25rem;}
+    h4{font-size:1.1rem;font-weight:500;color:var(--text);margin-bottom:1.5rem;}
+    p{margin-bottom:1rem;font-size:1rem;line-height:1.5;}
+    .btn{display:inline-block;margin-top:0.5rem;padding:0.75rem 1.5rem;border-radius:var(--radius);background:var(--primary);color:white;font-weight:600;text-decoration:none;transition:filter .2s ease;}
+    .btn:hover{filter:brightness(110%);}    
+    @media(max-width:480px){
+      .card{padding:2rem 1.25rem;}
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Martes Painting LLC</h1>
+    <h4>It's a Pleasure to Serve You!</h4>
+    <p>Quality commercial & residential painting across New Jersey.</p>
+    <p class="phone">732‑915‑7582</p>
+    <a href="tel:17329157582" class="btn" id="callBtn">Call for a Free Proposal</a>
+  </main>
+
+  <script>
+    // subtle animation on load
+    document.addEventListener('DOMContentLoaded',()=>{
+      const card=document.querySelector('.card');
+      card.animate([
+        {opacity:0,transform:'translateY(20px)'},
+        {opacity:1,transform:'translateY(0)'}
+      ],{duration:600,fill:'forwards',easing:'ease-out'});
+    });
+  </script>
+</body>
+</html>
