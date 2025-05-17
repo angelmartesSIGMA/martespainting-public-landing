@@ -56,16 +56,23 @@
       --radius:0.75rem;
     }
     *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-    body{background:var(--bg);color:var(--text);display:flex;min-height:100vh;justify-content:center;align-items:center;padding:1rem;}
-    .card{max-width:480px;width:100%;background:white;border-radius:var(--radius);box-shadow:0 10px 20px rgba(0,0,0,.08);padding:2.5rem 2rem;text-align:center;}
+    body{background:var(--bg);color:var(--text);display:flex;min-height:100vh;justify-content:center;align-items:flex-start;padding:2rem;gap:2rem;flex-wrap:wrap;}
+    .card, .testimonials{max-width:480px;width:100%;background:white;border-radius:var(--radius);box-shadow:0 10px 20px rgba(0,0,0,.08);padding:2.5rem 2rem;}
+    .card{text-align:center;}
     h1{font-size:2rem;color:var(--primary);margin-bottom:0.25rem;}
     h4{font-size:1.1rem;font-weight:500;color:var(--text);margin-bottom:1.25rem;}
     p{margin-bottom:1rem;font-size:1rem;line-height:1.5;}
     .small{font-size:0.9rem;color:#555;}
     .btn{display:inline-block;margin-top:0.5rem;padding:0.75rem 1.5rem;border-radius:var(--radius);background:var(--primary);color:white;font-weight:600;text-decoration:none;transition:filter .2s ease;}
-    .btn:hover{filter:brightness(110%);}    
+    .btn:hover{filter:brightness(110%);}   
+    .testimonials h2{font-size:1.5rem;color:var(--primary);margin-bottom:1.5rem;text-align:center;}
+    .testimonial{margin-bottom:1.75rem;}
+    .stars{color:var(--accent);font-size:1rem;margin-bottom:0.25rem;}
+    .author{font-weight:600;}
+    .source-link{color:var(--primary);text-decoration:none;font-weight:500;}
+    .source-link:hover{text-decoration:underline;}
     @media(max-width:480px){
-      .card{padding:2rem 1.25rem;}
+      .card, .testimonials{padding:2rem 1.25rem;}
     }
   </style>
 </head>
@@ -80,6 +87,39 @@
     <p style="margin-top:1.5rem;">or email us at<br><a href="mailto:miguel@martespainting.com" style="color:var(--primary);font-weight:600;">miguel@martespainting.com</a></p>
   </main>
 
+  <!-- Testimonials Section -->
+  <section class="testimonials" aria-labelledby="testimonials-title">
+    <h2 id="testimonials-title">Testimonials</h2>
+
+    <article class="testimonial">
+      <div class="stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
+      <p>"Miguel is the best painter I have come across. He is professional, clean, meticulous and does an excellent job. I highly recommend his company and he will be my 1st call when I need more painting done."</p>
+      <p class="author">Perry D. – Freehold, NJ <span class="small">(10/1/2024)</span></p>
+      <a class="source-link" href="https://www.homeadvisor.com/rated.Martespainting.122360760.html" target="_blank" rel="noopener">- Tripadvisor</a>
+    </article>
+
+    <article class="testimonial">
+      <div class="stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
+      <p>"Miguel is a true professional painter. Miguel does excellent work. He painted the complete interior of my 2000 s2. ft. home - trims, doors, ceiling, walls! Miguel works efficiently, is neat and clean. Anyone who hires Miguel will be most fortunate to benefit from his expertise. In addition, Miguel was always punctual, highly trustworthy and a pleasure to work with. I highly recommend him - he is the best!"</p>
+      <p class="author">Barbara F. – Avon By The Sea, NJ <span class="small">(4/20/2022)</span></p>
+      <a class="source-link" href="https://www.homeadvisor.com/rated.Martespainting.122360760.html" target="_blank" rel="noopener">- Tripadvisor</a>
+    </article>
+
+    <article class="testimonial">
+      <div class="stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
+      <p>"We would highly recommend Martes painting. Miguel and his crew were superb. True gentleman who take pride in their work. Outstanding work!! A true perfectionist! Thank you , Miguel so very much..!"</p>
+      <p class="author">Linda P. – Freehold, NJ <span class="small">(2/16/2022)</span></p>
+      <a class="source-link" href="https://www.homeadvisor.com/rated.Martespainting.122360760.html" target="_blank" rel="noopener">- Tripadvisor</a>
+    </article>
+
+    <article class="testimonial">
+      <div class="stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
+      <p>"Miguel provided not only expertise, but he is punctual, hard working, and trustworthy. He stands behind his work I recommend him with no reservations, he is fantastic."</p>
+      <p class="author">Barbara C. – Lancaster, PA <span class="small">(1/13/2022)</span></p>
+      <a class="source-link" href="https://www.homeadvisor.com/rated.Martespainting.122360760.html" target="_blank" rel="noopener">- Tripadvisor</a>
+    </article>
+  </section>
+
   <script>
     // subtle animation on load
     document.addEventListener('DOMContentLoaded',()=>{
@@ -88,6 +128,14 @@
         {opacity:0,transform:'translateY(20px)'},
         {opacity:1,transform:'translateY(0)'}
       ],{duration:600,fill:'forwards',easing:'ease-out'});
+
+      const testimonials=document.querySelectorAll('.testimonial');
+      testimonials.forEach((t,i)=>{
+        t.animate([
+          {opacity:0,transform:'translateY(20px)'},
+          {opacity:1,transform:'translateY(0)'}
+        ],{duration:600,fill:'forwards',easing:'ease-out',delay:200*(i+1)});
+      });
     });
   </script>
 </body>
